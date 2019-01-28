@@ -56,7 +56,7 @@ function displayEntryDetails(logBookToDisplay) {
   var entryList = $("ul#places");
   var htmlForEntryInfo = "";
   logBookToDisplay.entries.forEach(function(place) {
-    htmlForEntryInfo += "<li id=" + place.id + ">" + place.country + "</li>";
+    htmlForEntryInfo += "<li id=" + place.id + ">" + place.country + " and " + place.city + "</li>";
   });
   entryList.html(htmlForEntryInfo)
 };
@@ -75,15 +75,15 @@ function attachEntryListeners() {
 function showEntries(entriesId) {
   var entry = logBook.findEntry(entriesId);
   $("show-places").show();
-  $(".city-destination").html(place.city);
-  $(".country-destination").html(place.country);
-  $(".date-travel").html(place.date);
-  $(".duration-trip").html(place.duration);
-  $(".landmark").html(place.landmark);
-  $(".notes").html(place.note);
+  $(".city-destination").html(entry.city);
+  $(".country-destination").html(entry.country);
+  $(".date-travel").html(entry.date);
+  $(".duration-trip").html(entry.duration);
+  $(".landmark").html(entry.landmark);
+  $(".notes").html(entry.note);
   var buttons = $("#buttons");
   buttons.empty();
-  buttons.append("<button class='deleteButton' id=" + entries.id + ">Delete</button>")
+  buttons.append("<button class='deleteButton' id=" + entry.id + ">Delete</button>")
 };
 
 $(document).ready(function() {
