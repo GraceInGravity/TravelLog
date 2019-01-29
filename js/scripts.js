@@ -63,6 +63,7 @@ function displayEntryDetails(logBookToDisplay) {
 
 function attachEntryListeners() {
   $("ul#places").on("click", "li", function() {
+    $("#show-places").show();
     showEntries(this.id);
   });
   $("#buttons").on("click", ".deleteButton", function() {
